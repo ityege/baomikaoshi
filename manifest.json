@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "保密考试辅助插件",
+    "version": "1.0",
+    "description": "保密考试辅助插件",
+    "web_accessible_resources": [
+        {
+          "resources": [ "resources/config.json" ],
+          "matches": [ "https://miap.cc:8494/*" ]
+        }
+      ],
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "img/logo.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*/*"
+            ],
+            "js": [
+                "js/content.js"
+            ]
+        }
+    ]
+}
