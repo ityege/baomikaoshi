@@ -1,3 +1,4 @@
+import re
 # https://miap.cc:8494/app/xcube/index.html#/login
 # {
 #     "题目": "客户网电脑使用过程中，说法是不正确的(  )",
@@ -47,7 +48,7 @@ def parsing_input_files(text):
                 line = line.strip()
                 topic_dic["标准答案"] = line
             else:
-                line = line.strip()
+                line = re.sub(r'[^\u4e00-\u9fa5]', '', line)
                 topic_dic["题目"] = line
         num += 1
         topic_dic["题号"] = str(num)

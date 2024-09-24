@@ -18,7 +18,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
                     pre = child.getElementsByTagName("pre");
                     // console.log(pre[0].textContent);
                     for (let t of data) {
-                        if (pre[0].textContent === (t.题目)) {
+                        if (pre[0].textContent.replace(/[^\u4e00-\u9fa5]/g, '') === (t.题目)) {
                             // console.log(t.标准答案);
                             if (t.标准答案 === "A") {
                                 child.getElementsByTagName("label")[0].click();
